@@ -1,0 +1,25 @@
+<li [ngClass]="{'list-group-item': true,
+  'negativeLoveIts' : post.loveIt < 0,
+  'positiveLoveIts' : post.loveIt > 0}">
+  <div class="row">
+    <h2 class="col-md-6">{{ postTitle }}</h2>
+    <span class="col-md-6 text-right">{{ postCreatedAt | date: 'dd/MM/yyyy, HH:mm | uppercase'}}</span>
+  </div>
+  <div class="row">
+    <h4 class="col-md-12">
+      {{ postContent }}
+    </h4>
+    <div class="col-md-6 nbLike"><strong>Nombre de like :  {{ postLoveIt }}</strong></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <button class="btn btn-block btn-success" (click)="onLoveIt(postLoveIt)">Love it !</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-block btn-danger" (click)="onDontLoveIt(postLoveIt)">Don't love it !</button>
+    </div>
+    <div class="col-md-2 col-md-offset-6">
+      <button class="btn btn-danger btn-block pull-right" (click)="onDeletePost(post)">Supprimer</button>
+    </div>
+  </div>
+</li>
